@@ -29,7 +29,7 @@ const BlogContent = ({ blog }: BlogContentProps) => {
             {coverImage?.url && (
               <Image
                 className="h-56 w-full object-cover rounded-xl"
-                src={`http://localhost:1337${coverImage.url}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${coverImage.url}`}
                 alt={articleTitle}
                 loading="lazy"
                 width={500}
@@ -47,7 +47,7 @@ const BlogContent = ({ blog }: BlogContentProps) => {
                 {author?.authorImage?.url && (
                   <Image
                     className="p-2 w-32 h-32 rounded-full mx-auto object-cover"
-                    src={`http://localhost:1337${author.authorImage.url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${author.authorImage.url}`}
                     alt={author.authorName}
                     loading="lazy"
                     width={500}

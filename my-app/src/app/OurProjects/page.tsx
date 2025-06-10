@@ -41,7 +41,7 @@ export default async function OurProjects() {
                   {imageUrl && (
                     <Image
                       className="h-56 w-full object-cover"
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`}
                       alt={project.projectTitle}
                       width={500}
                       height={300}

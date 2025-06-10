@@ -3,7 +3,7 @@ import Link from "next/link";
 
 async function getPublications() {
   const res = await fetch(
-    "http://localhost:1337/api/academic-publications?populate=*",
+    `${process.env.NEXT_PUBLIC_API_URL}/api/academic-publications?populate=*`,
     { cache: "no-store" }
   );
 

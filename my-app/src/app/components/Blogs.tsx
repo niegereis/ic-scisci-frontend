@@ -17,7 +17,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
               <article className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden drop-shadow-md cursor-pointer transition-transform transform hover:scale-105">
                 <Image
                   className="w-full md:w-64 h-56object-cover"
-                  src={`http://localhost:1337${blog.coverImage?.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${blog.coverImage?.url}`}
                   alt={blog.articleTitle}
                   width={500}
                   height={300}

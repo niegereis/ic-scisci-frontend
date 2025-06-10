@@ -14,7 +14,7 @@ interface AboutProject {
 
 async function getProjectInfo() {
   const res = await fetch(
-    "http://localhost:1337/api/about-projects?populate=*",
+    `${process.env.NEXT_PUBLIC_API_URL}/api/about-projects?populate=*`,
     {
       cache: "no-store",
     }
@@ -36,7 +36,7 @@ async function HomePage({ blogs }: BlogsProps) {
         <div className="max-w-[1240px] mx-auto p-4 text-center">
           <Image
             className="h-56 w-full object-cover rounded-xl"
-            src={`http://localhost:1337${infos.aboutProjectImage.url}`}
+            src={`${process.env.NEXT_PUBLIC_API_URL}${infos.aboutProjectImage.url}`}
             alt={infos.aboutProjectTitle}
             width={500}
             height={300}

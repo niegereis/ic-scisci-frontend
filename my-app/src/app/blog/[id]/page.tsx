@@ -4,7 +4,7 @@ import BlogContent from "@/app/components/BlogContents";
 
 async function getAllBlogs() {
   const res = await fetch(
-    "http://localhost:1337/api/blog-articles?populate[author][populate]=authorImage&populate=coverImage",
+    `${process.env.NEXT_PUBLIC_API_URL}/api/blog-articles?populate[author][populate]=authorImage&populate=coverImage`,
     { cache: "no-store" }
   );
 

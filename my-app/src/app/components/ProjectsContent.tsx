@@ -35,7 +35,7 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
             {mainImageUrl && (
               <Image
                 className="h-56 w-full object-cover rounded-xl"
-                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${mainImageUrl}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${mainImageUrl}`}
                 alt={projectTitle}
                 width={500}
                 height={300}
@@ -59,7 +59,7 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
                       {authorImageUrl && (
                         <Image
                           className="h-56 w-full object-contain mx-auto"
-                          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${authorImageUrl}`}
+                          src={`${process.env.NEXT_PUBLIC_API_URL}${authorImageUrl}`}
                           alt={author.authorName}
                           width={500}
                           height={300}
@@ -93,7 +93,7 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
                         {pubImageUrl && (
                           <Image
                             className="h-56 w-full object-contain mx-auto"
-                            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${pubImageUrl}`}
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${pubImageUrl}`}
                             alt={pub.articleTitle}
                             width={500}
                             height={300}

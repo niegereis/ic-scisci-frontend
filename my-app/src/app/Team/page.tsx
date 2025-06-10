@@ -5,9 +5,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 async function getTeamInfos() {
-  const res = await fetch("http://localhost:1337/api/authors?populate=*", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/authors?populate=*`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Erro ao buscar os autores.");
@@ -110,7 +113,7 @@ export default function Team() {
               >
                 <Image
                   className="h-56 w-full object-contain mx-auto"
-                  src={`http://localhost:1337${team.authorImage?.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${team.authorImage?.url}`}
                   alt={team.authorName}
                   width={500}
                   height={300}
