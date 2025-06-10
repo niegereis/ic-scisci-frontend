@@ -40,7 +40,7 @@ const NavBar = () => {
               <a href="/AcademicPublications">Produção Acadêmica</a>
             </li>
             <li>
-              <a href="/chat">Grafo de conhecimento</a>
+              <a href="/chat">Chatbot</a>
             </li>
           </ul>
         </nav>
@@ -74,7 +74,7 @@ const NavBar = () => {
             <a href="/AcademicPublications">Produção Acadêmica</a>
           </li>
           <li>
-            <a href="/chat">Grafo de conhecimento</a>
+            <a href="/chat">Chatbot</a>
           </li>
         </ul>
       </nav>
