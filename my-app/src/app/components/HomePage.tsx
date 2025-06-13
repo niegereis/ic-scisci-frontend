@@ -8,7 +8,7 @@ interface AboutProject {
   aboutProjectTitle: string;
   aboutProjectDescription: any;
   aboutProjectImage: {
-    url: string;
+    url?: string;
   };
 }
 
@@ -34,13 +34,15 @@ async function HomePage({ blogs }: BlogsProps) {
     <div className="bg-[#f9f9f9]">
       <section className="shadow-md rounded-xl mb-8">
         <div className="max-w-[1240px] mx-auto p-4 text-center">
-          <Image
-            className="h-56 w-full object-cover rounded-xl"
-            src={infos.aboutProjectImage.url}
-            alt={infos.aboutProjectTitle}
-            width={500}
-            height={300}
-          />
+          {infos.aboutProjectImage?.url && (
+            <Image
+              className="h-56 w-full object-cover rounded-xl"
+              src={infos.aboutProjectImage.url}
+              alt={infos.aboutProjectTitle}
+              width={500}
+              height={300}
+            />
+          )}
         </div>
       </section>
 
