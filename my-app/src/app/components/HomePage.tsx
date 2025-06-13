@@ -36,7 +36,7 @@ async function HomePage({ blogs }: BlogsProps) {
         <div className="max-w-[1240px] mx-auto p-4 text-center">
           <Image
             className="h-56 w-full object-cover rounded-xl"
-            src={`${process.env.NEXT_PUBLIC_API_URL}${infos.aboutProjectImage.url}`}
+            src={infos.aboutProjectImage.url}
             alt={infos.aboutProjectTitle}
             width={500}
             height={300}

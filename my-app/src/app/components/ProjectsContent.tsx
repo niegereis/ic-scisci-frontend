@@ -35,7 +35,7 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
             {mainImageUrl && (
               <Image
                 className="h-56 w-full object-cover rounded-xl"
-                src={`${process.env.NEXT_PUBLIC_API_URL}${mainImageUrl}`}
+                src={mainImageUrl}
                 alt={projectTitle}
                 width={500}
                 height={300}
@@ -59,7 +59,7 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
                       {authorImageUrl && (
                         <Image
                           className="h-56 w-full object-contain mx-auto"
-                          src={`${process.env.NEXT_PUBLIC_API_URL}${authorImageUrl}`}
+                          src={authorImageUrl}
                           alt={author.authorName}
                           width={500}
                           height={300}
@@ -85,7 +85,6 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
               </h1>
               <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
                 {blog_articles?.map((pub: Blog) => {
-                  // 4. E a mesma lógica para a imagem da publicação
                   const pubImageUrl = pub.coverImage?.url;
                   return (
                     <Link key={pub.id} href={`/blog/${pub.id}`} passHref>
@@ -93,7 +92,7 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
                         {pubImageUrl && (
                           <Image
                             className="h-56 w-full object-contain mx-auto"
-                            src={`${process.env.NEXT_PUBLIC_API_URL}${pubImageUrl}`}
+                            src={pubImageUrl}
                             alt={pub.articleTitle}
                             width={500}
                             height={300}
