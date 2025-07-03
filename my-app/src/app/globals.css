@@ -67,3 +67,7 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+.banner {
+  aspect-ratio: 1920/600;
+}

@@ -32,18 +32,19 @@ async function HomePage({ blogs }: BlogsProps) {
   const infos: AboutProject = await getProjectInfo();
   return (
     <div className="bg-[#f9f9f9]">
-      <section className="shadow-md rounded-xl mb-8">
-        <div className="max-w-[1240px] mx-auto p-4 text-center">
-          {infos.aboutProjectImage?.url && (
+      <section className="bg-[#f9f9f9]">
+        {infos.aboutProjectImage?.url && (
+          <div className="max-w-[1240px] mx-auto px-2">
             <Image
-              className="h-56 w-full object-cover rounded-xl"
               src={infos.aboutProjectImage.url}
               alt={infos.aboutProjectTitle}
-              width={500}
-              height={300}
+              loading="lazy"
+              width={1920}
+              height={500}
+              className="w-full h-auto max-h-[400px] rounded-xl"
             />
-          )}
-        </div>
+          </div>
+        )}
       </section>
 
       <section className="max-w-[1240px] mx-auto p-6 mb-8">
@@ -53,7 +54,7 @@ async function HomePage({ blogs }: BlogsProps) {
         </div>
       </section>
 
-      <section className="max-w-[1240px] mx-auto  p-6 mb-8">
+      <section className="max-w-[1240px] mx-auto p-6 mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-4 space-y-2 sm:space-y-0">
           <h2 className="font-bold text-2xl sm:text-2xl ">
             Nossas Publicações

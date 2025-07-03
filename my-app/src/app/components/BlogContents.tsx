@@ -27,15 +27,18 @@ const BlogContent = ({ blog }: BlogContentProps) => {
         >
           <section className="col-span-4">
             {coverImage?.url && (
-              <Image
-                className="h-56 w-full object-cover rounded-xl"
-                src={coverImage.url}
-                alt={articleTitle}
-                loading="lazy"
-                width={500}
-                height={300}
-              />
+              <div className="max-w-[1240px] mx-auto px-2">
+                <Image
+                  src={coverImage.url}
+                  alt={articleTitle}
+                  loading="lazy"
+                  width={1920}
+                  height={500}
+                  className="w-full h-auto max-h-[400px] rounded-xl"
+                />
+              </div>
             )}
+
             <h1 className="font-bold text-2xl my-1 pt-5">{articleTitle}</h1>
             <div className="pt-5 prose text-justify max-w-none">
               <BlocksRenderer content={blogContent} />
