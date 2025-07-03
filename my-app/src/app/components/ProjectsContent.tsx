@@ -33,14 +33,18 @@ const ProjectsContent = ({ project }: ProjectContentProps) => {
         <div className="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 px-4 sm:pt-20 md:mt-0 text-black">
           <section>
             {mainImageUrl && (
-              <Image
-                className="h-56 w-full object-cover rounded-xl"
-                src={mainImageUrl}
-                alt={projectTitle}
-                width={500}
-                height={300}
-              />
+              <div className="max-w-[1240px] mx-auto px-2">
+                <Image
+                  src={mainImageUrl}
+                  alt={projectTitle}
+                  loading="lazy"
+                  width={1920}
+                  height={500}
+                  className="w-full h-auto max-h-[400px] rounded-xl"
+                />
+              </div>
             )}
+
             <h1 className="font-bold text-2xl my-1 pt-5">{projectTitle}</h1>
             <div className="pt-5 prose text-justify max-w-none">
               <BlocksRenderer content={projectDescription} />
