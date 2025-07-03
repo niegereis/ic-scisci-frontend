@@ -12,14 +12,14 @@ const Footer = () => {
           </p>
           <nav className="flex gap-4 text-xl text-black mt-4 sm:mt-0">
             <a
-              href="#"
+              href="https://github.com/ufopcsilab/projects"
               className="hover:text-gray-300 transition duration-300"
               aria-label="GitHub"
             >
               <FaGithub />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/csilab_ufop/"
               className="hover:text-gray-300 transition duration-300"
               aria-label="Instagram"
             >
@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
+              href="https://ic-scisci-backend.onrender.com/admin/auth/login"
               className="hover:text-gray-300 transition duration-300"
               aria-label="Login"
             >
