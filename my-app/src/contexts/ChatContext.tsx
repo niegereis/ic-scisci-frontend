@@ -39,6 +39,28 @@ interface ChatContextType extends AppState {
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
+/**
+ * Provides chat-related state and actions to its children via React Context.
+ *
+ * This provider manages the application's chat state, including conversations,
+ * active conversation, message management, and localStorage persistence.
+ * It exposes methods for manipulating conversations and messages, as well as
+ * loading state and hydration status.
+ *
+ * @param children - The React children nodes to be wrapped by the provider.
+ *
+ * @remarks
+ * - Loads and persists chat state to localStorage.
+ * - Handles conversation and message CRUD operations.
+ * - Navigates to new chat routes when starting a new conversation.
+ *
+ * @example
+ * ```tsx
+ * <ChatProvider>
+ *   <YourChatComponent />
+ * </ChatProvider>
+ * ```
+ */
 export const ChatProvider = ({ children }: { children: ReactNode }) => {
   const [appState, setAppState] = useState<AppState>({
     conversations: [],

@@ -21,6 +21,14 @@ async function getProjects(): Promise<Projects[]> {
   }
 }
 
+/**
+ * Async React component that fetches and displays a grid of project cards.
+ *
+ * Each project card links to its detail page and displays an image and title.
+ * Projects are fetched using the `getProjects` function.
+ *
+ * @returns {JSX.Element} A section containing a responsive grid of project cards.
+ */
 export default async function OurProjects() {
   const projects = await getProjects();
 

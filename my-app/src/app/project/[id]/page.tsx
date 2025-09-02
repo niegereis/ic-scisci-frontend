@@ -8,6 +8,20 @@ interface ProjectResponse {
   data: Projects[];
 }
 
+/**
+ * Retrieves a project by its unique identifier.
+ *
+ * @param id - The unique identifier of the project to fetch.
+ * @returns A promise that resolves to the project data if found, or `null` if not found or on error.
+ *
+ * @example
+ * ```typescript
+ * const project = await getProjectById("123");
+ * if (project) {
+ *   // handle project
+ * }
+ * ```
+ */
 async function getProjectById(id: string) {
   try {
     const endpoint = `/sci-sci-projects`;

@@ -2,6 +2,15 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaUserCircle } from "react-icons/fa";
 
+/**
+ * Footer component that displays the application's footer section.
+ *
+ * This component renders a footer with a copyright notice and a navigation bar
+ * containing links to GitHub, Instagram, and an admin login page. The layout is responsive,
+ * adapting between column and row arrangements based on screen size.
+ *
+ * @returns {JSX.Element} The rendered footer component.
+ */
 const Footer = () => {
   return (
     <footer className="shadow-md border-t-2 border-gray-200 bg-white text-black py-6">

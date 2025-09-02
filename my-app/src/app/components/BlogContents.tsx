@@ -3,6 +3,16 @@ import { BlogContentProps } from "@/types/types";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 
+/**
+ * Renders the content of a blog post, including the cover image, article title,
+ * main content, and author information. If the blog data is not available,
+ * displays a "Blog não encontrado" message.
+ *
+ * @param blog - The blog post data to display, including article title, content,
+ * cover image, and author details.
+ * 
+ * @returns The JSX element representing the blog content or a not found message.
+ */
 const BlogContent = ({ blog }: BlogContentProps) => {
   if (!blog) {
     return (

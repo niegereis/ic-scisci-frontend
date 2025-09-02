@@ -3,6 +3,7 @@ import Blogs from "./Blogs";
 import { BlogsProps } from "@/types/types";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
+import { fetchApi } from "@/lib/strapi";
 
 interface AboutProject {
   aboutProjectTitle: string;
@@ -13,21 +14,26 @@ interface AboutProject {
 }
 
 async function getProjectInfo() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/about-projects?populate=*`,
-    {
-      cache: "no-store",
-    }
+  const data = await fetchApi<{ data: AboutProject[] }>(
+    "/about-projects",
+    { populate: "*" },
+    { cache: "no-store" }
   );
-
-  if (!res.ok) {
-    throw new Error("Erro ao buscar os artigos.");
-  }
-
-  const data = await res.json();
   return data.data[0];
 }
 
+
+/**
+ * Renders the main HomePage component, displaying project information and a list of blog publications.
+ *
+ * @param blogs - An array of blog post data to be displayed in the "Nossas Publicações" section.
+ * @returns The HomePage component containing the project image, description, and blog list.
+ *
+ * @remarks
+ * - Fetches project information asynchronously using `getProjectInfo`.
+ * - Displays a project image, title, and description.
+ * - Shows a section for recent blog publications with a link to view all.
+ */
 async function HomePage({ blogs }: BlogsProps) {
   const infos: AboutProject = await getProjectInfo();
   return (

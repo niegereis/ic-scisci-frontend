@@ -1,6 +1,17 @@
 
 import { NextRequest } from 'next/server';
 
+/**
+ * Asynchronously transforms a ReadableStream of Uint8Array chunks into a stream of text content.
+ * 
+ * This generator function reads from the provided `geminiStream`, decodes each chunk as UTF-8 text,
+ * removes the "data: " prefix from each line, parses the cleaned chunk as JSON, and yields the
+ * `text` property found at `json.candidates[0].content.parts[0].text`. If parsing fails or the
+ * expected structure is not found, the chunk is skipped.
+ * 
+ * @param geminiStream - The ReadableStream containing Uint8Array data to be transformed.
+ * @yields The extracted text content from each parsed JSON chunk.
+ */
 async function* streamTransformer(geminiStream: ReadableStream<Uint8Array>) {
     const reader = geminiStream.getReader();
     const decoder = new TextDecoder();
@@ -22,6 +33,21 @@ async function* streamTransformer(geminiStream: ReadableStream<Uint8Array>) {
     }
 }
 
+/**
+ * Handles POST requests to the /api/chat endpoint, forwarding user messages to the Gemini API
+ * and streaming the AI-generated response back to the client.
+ *
+ * @param req - The incoming Next.js request object containing the user's message in JSON format.
+ * @returns A streamed Response object with the AI's answer in markdown format, or an error response if something fails.
+ *
+ * @throws Returns a 500 error response if the Gemini API key is not configured, if the Gemini API returns an error,
+ *         or if any other internal error occurs during processing.
+ *
+ * @remarks
+ * - Expects the request body to contain a `message` property.
+ * - Streams the Gemini API response using Server-Sent Events (SSE).
+ * - The AI is instructed to answer as a helpful assistant in markdown.
+ */
 export async function POST(req: NextRequest) {
     try {
         const { message } = await req.json();

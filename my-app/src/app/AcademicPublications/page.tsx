@@ -1,20 +1,27 @@
+import { fetchApi } from "@/lib/strapi";
 import { Publication } from "@/types/types";
 import Link from "next/link";
 
+/**
+ * Fetches a list of academic publications from the API.
+ *
+ * @returns A promise that resolves to an object containing an array of `Publication` items.
+ */
 async function getPublications() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/academic-publications?populate=*`,
-    { cache: "no-store" }
+  return await fetchApi<{ data: Publication[] }>(
+    "/academic-publications",
+    { populate: "*" }
   );
-
-  if (!res.ok) {
-    throw new Error("Erro ao buscar publicações.");
-  }
-
-  const data = await res.json();
-  return data;
 }
 
+/**
+ * Renders a section displaying a grid of academic publications.
+ *
+ * Fetches publication data asynchronously and displays each publication
+ * with its title, journal, year, authors, and a link to access the publication.
+ *
+ * @returns {JSX.Element} The rendered publications section.
+ */
 export default async function Publications() {
   const publications = await getPublications();
 

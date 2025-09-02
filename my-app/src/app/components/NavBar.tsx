@@ -6,6 +6,24 @@ import close from "../../assets/close.svg";
 import logo from "../../assets/logo-teste.png";
 import "../globals.css";
 
+/**
+ * NavBar component renders the main navigation bar for the application.
+ *
+ * Features:
+ * - Displays a logo and navigation links.
+ * - Responsive design: shows a hamburger menu on mobile devices.
+ * - Toggles the mobile menu visibility on click.
+ *
+ * State:
+ * - `togle` (boolean): Controls the visibility of the mobile navigation menu.
+ *
+ * Usage:
+ * ```tsx
+ * <NavBar />
+ * ```
+ *
+ * @component
+ */
 const NavBar = () => {
   const [togle, setTogle] = useState<boolean>(false);
 

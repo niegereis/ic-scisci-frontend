@@ -2,6 +2,17 @@
 import React from "react";
 import HomePage from "./components/HomePage";
 
+/**
+ * Fetches blog articles from the API, including author images and cover images.
+ *
+ * @async
+ * @function
+ * @returns {Promise<any>} A promise that resolves to the fetched blog articles data.
+ * @throws {Error} Throws an error if the fetch request fails.
+ *
+ * @example
+ * const blogs = await getBlogs();
+ */
 async function getBlogs() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/blog-articles?populate[author][populate]=authorImage&populate=coverImage`,

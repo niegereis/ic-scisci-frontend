@@ -4,6 +4,16 @@ import { Author, ProjectContentProps, Blog } from "@/types/types";
 import Link from "next/link";
 import Image from "next/image";
 
+/**
+ * Renders the content of a project, including its main image, title, description,
+ * team members (authors), and related blog articles. If the project is not found,
+ * displays a "Projeto não encontrado" message.
+ *
+ * @param {ProjectContentProps} props - The props for the ProjectsContent component.
+ * @param {Project | undefined} props.project - The project data to display. If undefined, shows a not found message.
+ *
+ * @returns {JSX.Element} The rendered project content or a not found message.
+ */
 const ProjectsContent = ({ project }: ProjectContentProps) => {
   if (!project) {
     return (

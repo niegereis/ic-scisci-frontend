@@ -8,6 +8,19 @@ export const metadata = {
   description: "Projeto SciSci - Ciência da Ciência",
 };
 
+/**
+ * Root layout component for the application.
+ *
+ * @param children - The React node(s) to be rendered within the layout.
+ * @returns The root HTML structure including the head, navigation bar, main content, and footer.
+ *
+ * @remarks
+ * - Sets the language to Brazilian Portuguese (`pt-BR`).
+ * - Includes meta tags for character set and viewport configuration.
+ * - Adds a favicon and dynamic page title.
+ * - Applies global background and text color classes.
+ * - Renders a navigation bar (`<NavBar />`) and footer (`<Footer />`) around the main content.
+ */
 export default function RootLayout({
   children,
 }: {

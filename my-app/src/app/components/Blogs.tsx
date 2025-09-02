@@ -3,6 +3,17 @@ import Link from "next/link";
 import { BlogsProps } from "@/types/types";
 import Image from "next/image";
 
+/**
+ * Renders a list of blog articles in a responsive grid layout.
+ *
+ * @component
+ * @param {BlogsProps} props - The props for the Blogs component.
+ * @param {Array} props.blogs.data - An array of blog objects to display.
+ * @returns {JSX.Element} The rendered Blogs section, or a message if no blogs are available.
+ *
+ * Each blog article displays its cover image, title, and description.
+ * Clicking on an article navigates to the blog's detail page.
+ */
 const Blogs = ({ blogs }: BlogsProps) => {
   if (!Array.isArray(blogs.data) || blogs.data.length === 0) {
     return <p>Não há blogs disponíveis no momento.</p>;
